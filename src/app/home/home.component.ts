@@ -13,13 +13,16 @@ export class HomeComponent {
   owner: string = environment.appOwner;
 
   // images
-  imageSalesLeft: string = 'assets/sales_left.jpeg';
-  imageSalesMiddle: string = 'assets/sales_middle.jpeg';
-  imageSalesRight: string = 'assets/sales_right.jpeg';
+  imageSalesLeft: string = 'assets/left-card.png';
+  imageSalesMiddle: string = 'assets/middle-card.png';
+  imageSalesRight: string = 'assets/right-card.png';
+  imageBackgroundHome: string = 'assets/background-home.png';
 
   // menu items
   items: Array<any> = [
     {
+
+
       title: 'Home',
       route: '/home',
     },
@@ -42,5 +45,10 @@ export class HomeComponent {
 
   onLogout(): void {
     this.router.navigateByUrl('/auth')
+  }
+
+
+  onAdmin(): void {
+    this.router.navigateByUrl('/dashboard')
   }
 }

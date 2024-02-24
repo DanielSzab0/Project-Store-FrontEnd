@@ -14,17 +14,15 @@
         </div>
 
         <div class="div-buttons" *ngIf="showAdmin">
-          <button mat-raised-button color="primary" (click)="onEdit(item)">Edit</button>
+          <button class="card-button" mat-raised-button color="primary" (click)="onEdit(item)">Edit</button>
           <div class="div-spacer"></div>
-          <button mat-raised-button color="accent" (click)="onDelete(item)">Delete</button>
+          <button class="card-button" mat-raised-button color="accent" (click)="onDelete(item)">Delete</button>
         </div>
         <div class="div-spacer"></div>
-        <div class="div-buttons">
-          <button mat-raised-button color="warn" (click)="onAddToCart(item)">Add to cart</button>
+        <div class="div-buttons" *ngIf="showAddToCart">
+          <button class="add-button" mat-raised-button color="primary" (click)="onAddToCart(item)">Add to cart</button>
         </div>
       </mat-card-content>
     </mat-card>
-
   </div>
-
 </div>

@@ -47,7 +47,7 @@ export class UserService {
       "reTypePassword": reTypePassword,
       "userRole": userRole,
     }
-    return this.httpClient.post(`${environment.apiUrl}/users/`, body).subscribe((response: any) => {
+    return this.httpClient.post(`${environment.apiUrl}/user`, body).subscribe((response: any) => {
       console.log(response);
       alert(response.message);
       this.readUsers();
@@ -63,7 +63,7 @@ export class UserService {
       "reTypePassword": reTypePassword,
       "userRole": userRole,
     }
-    return this.httpClient.patch(`${environment.apiUrl}/users/${id}`, body).subscribe((response: any) => {
+    return this.httpClient.patch(`${environment.apiUrl}/user`, body).subscribe((response: any) => {
       console.log(response);
       alert(response.message);
       this.readUsers();
@@ -71,7 +71,7 @@ export class UserService {
   }
 
   public deleteUser(id: string) {
-    return this.httpClient.delete(`${environment.apiUrl}/users/${id}`).subscribe((response: any) => {
+    return this.httpClient.delete(`${environment.apiUrl}/user/${id}`).subscribe((response: any) => {
       console.log(response);
       alert(response.message);
       this.readUsers();
@@ -79,7 +79,7 @@ export class UserService {
   }
 
   public readUsers() {
-    this.httpClient.get(`${environment.apiUrl}/users/`).subscribe((response: any) => {
+    this.httpClient.get(`${environment.apiUrl}/users`).subscribe((response: any) => {
       console.log(response);
 
       this.userObservable.next(response.data);

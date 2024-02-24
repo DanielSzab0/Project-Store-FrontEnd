@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
 import {Item} from "../../models/Item";
 import {ItemService} from "../../services/item.service";
@@ -10,8 +10,9 @@ import {environment} from "../../../environments/environment";
   styleUrls: ['./add-edit-item.component.css']
 })
 export class AddEditItemComponent implements OnChanges {
-  @Input("item") item: Item = new Item("", "", "", "", "");
+  @Output() viewTypeChange = new EventEmitter<string>();
 
+  @Input("item") item: Item = new Item("", "", "", "", "");
   id: string = "";
   title = new FormControl('', [Validators.required]);
   description = new FormControl('', [Validators.required]);
@@ -68,5 +69,9 @@ export class AddEditItemComponent implements OnChanges {
     this.price = new FormControl('', [Validators.required]);
     this.category = new FormControl('', [Validators.required]);
     this.imageUrl = new FormControl('', [Validators.required]);
+  }
+
+  public setViewType(viewType: string) {
+    this.viewTypeChange.emit(viewType);
   }
 }

@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../auth/auth.service";
@@ -11,6 +11,8 @@ import {User} from "../../models/User";
   styleUrls: ['./add-edit-user.component.css']
 })
 export class AddEditUserComponent implements OnChanges {
+  @Output() viewTypeChange= new EventEmitter<string>();
+
   @Input("user") user: User = new User("", "", "", "");
   id = "";
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -75,6 +77,10 @@ export class AddEditUserComponent implements OnChanges {
         this.retypePassword.getRawValue()!,
         this.userRole.getRawValue()!)
     }
+  }
+
+  public setViewType(viewType: string) {
+    this.viewTypeChange.emit(viewType);
   }
 }
 

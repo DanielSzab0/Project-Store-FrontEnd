@@ -3,9 +3,9 @@
   display: flex; /* unnecesary, only the container needs to be flex */
   /* unless this is another flex container */
   flex-direction: column; /* also unnecesary unless it's for purposes not shown in the example */
-  min-width: 500px;
+  width: 430px;
   margin: 10px;
-  height: 250px;
+  height: 240px;
 }
 
 .lbl-title {
@@ -16,6 +16,7 @@
 
 .div-buttons {
   display: flex;
+  justify-content: end;
 }
 
 .div-spacer {
@@ -31,6 +32,18 @@
 
 .img-preview {
   margin-left: auto;
-  margin-right: 0px;
+  margin-right: 0;
   height: 100px;
 }
+
+.item-card:hover {
+  transition: background-color 700ms;
+  background-color: #ece9e9;
+}
+
+.mat-mdc-raised-button:hover {
+  transition: transform 500ms, background-color 1000ms;
+  transform: scale3d(1.1, 1.1, 1.1);
+  background-color: #3b3a3a;
+}
+

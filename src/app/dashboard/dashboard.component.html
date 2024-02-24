@@ -5,11 +5,13 @@
     <p class="app-name">{{ title | uppercase }}</p>
 
     <div class="div-menu">
-      <mat-card *ngFor="let item of items" (click)="onChangePage(item)">
-        <mat-card-content class="item-menu-title">{{ item.title | uppercase }}</mat-card-content>
-      </mat-card>
+      <div class="buttons">
+        <button class="menu-button" mat-raised-button color="primary" (click)="onHome()">HOME</button>
+        <span class="span-spacer"></span>
+        <button class="menu-button" mat-raised-button color="primary" (click)="onLogout()">LOGOUT</button>
+      </div>
 
-      <mat-card>
+      <mat-card class="title-card">
         <mat-card-content class="item-menu-title">{{ owner | titlecase }}</mat-card-content>
       </mat-card>
     </div>
@@ -21,14 +23,16 @@
     </button>
     <span>{{ title}}</span>
     <span class="button-spacer"></span>
-    <button mat-icon-button (click)="onLogout()">
+    <button mat-icon-button (click)="onLogout()" title="Logout">
       <mat-icon>logout</mat-icon>
     </button>
   </mat-toolbar>
 
   <p class="lbl-title">Items Section</p>
 
-  <div class="div-items">
+<!--  *ngIf = "viewType === 'edit-item'" (viewTypeChange)= "setViewType($event)"-->
+
+  <div class="div-items" >
     <app-add-edit-item [item]="selectedItem"></app-add-edit-item>
     <div class="div-spacer"></div>
     <app-list-items [showAdmin]="true" (changeData)="onChangeItem($event)"></app-list-items>
@@ -38,7 +42,9 @@
 
   <p class="lbl-title">Users Section</p>
 
-  <div class="div-users">
+<!--  *ngIf = "viewType === 'edit-user'" (viewTypeChange)= "setViewType($event)"-->
+
+  <div class="div-users" >
     <app-add-edit-user [user]="selectedUser"></app-add-edit-user>
     <app-list-users (changeData)="onChangeUser($event)"></app-list-users>
   </div>

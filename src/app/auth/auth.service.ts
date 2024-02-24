@@ -15,7 +15,7 @@ export class AuthService {
       "password": password
     }
 
-    return this.httpClient.post(`${environment.apiUrl}/users/login`, body);
+    return this.httpClient.post(`${environment.apiUrl}/auth/login`, body);
   }
 
   public register(email: string, password: string, userName: string, reTypePassword: string) {
@@ -25,7 +25,7 @@ export class AuthService {
       "username": userName,
       "reTypePassword": reTypePassword
     }
-    return this.httpClient.post(`${environment.apiUrl}/users/register`, body);
+    return this.httpClient.post(`${environment.apiUrl}/auth/register`, body);
   }
 
 

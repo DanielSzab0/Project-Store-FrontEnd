@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'finalProjectFrontend';
+
+  isVisible: boolean = true;
+  onChange(): void {
+    this.isVisible = !this.isVisible;
+  }
 }

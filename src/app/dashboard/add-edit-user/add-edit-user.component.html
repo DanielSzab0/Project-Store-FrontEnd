@@ -32,7 +32,7 @@
     <div class="input-container">
       <mat-form-field appearance="fill" class="input-field">
         <mat-label>User Role</mat-label>
-        <mat-select [formControl]="userRole" required>
+        <mat-select [formControl]="userRole">
           <mat-option *ngFor="let usr of ['ADMIN', 'USER',]" [value]="usr">
             {{usr}}
           </mat-option>
@@ -43,6 +43,7 @@
 
     <div class="div-buttons-container">
       <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+      <button class="btn-register" mat-button color="primary" (click)="setViewType('edit-item')">Switch to edit item</button>
     </div>
   </mat-card-content>
 </mat-card>

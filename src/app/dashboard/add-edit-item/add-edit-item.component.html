@@ -26,7 +26,7 @@
         <div class="input-container">
           <mat-form-field appearance="fill" class="input-field">
             <mat-label>Category</mat-label>
-            <mat-select [formControl]="category" required>
+            <mat-select [formControl]="category">
               <mat-option *ngFor="let cat of itemCategories" [value]="cat">
                 {{cat}}
               </mat-option>
@@ -43,6 +43,7 @@
         </div>
         <div class="div-buttons-container">
           <button mat-raised-button color="primary" (click)="onSave()">{{id == "" ? "Create" : "Update"}}</button>
+          <button class="btn-register" mat-button color="primary" (click)="setViewType('edit-user')">Switch to edit user</button>
         </div>
       </mat-card-content>
     </mat-card>

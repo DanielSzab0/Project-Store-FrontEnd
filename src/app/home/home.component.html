@@ -5,11 +5,13 @@
     <p class="app-name">{{ title | uppercase }}</p>
 
     <div class="div-menu">
-      <mat-card *ngFor="let item of items" (click)="onChangePage(item)">
-        <mat-card-content class="item-menu-title">{{ item.title | uppercase }}</mat-card-content>
-      </mat-card>
+      <div class="buttons">
+        <button class="menu-button" mat-raised-button color="primary" (click)="onAdmin()">ADMIN</button>
+        <span class="span-spacer"></span>
+        <button class="menu-button" mat-raised-button color="primary" (click)="onLogout()">LOGOUT</button>
+      </div>
 
-      <mat-card>
+      <mat-card class="title-card">
         <mat-card-content class="item-menu-title">{{ owner | titlecase }}</mat-card-content>
       </mat-card>
     </div>
@@ -22,17 +24,17 @@
     <span>{{ title}}</span>
     <span class="button-spacer"></span>
 
-    <app-cart-button></app-cart-button>
+    <app-cart-button title="Cart"></app-cart-button>
 
-    <button mat-icon-button (click)="onLogout()">
+    <button mat-icon-button title="Logout" (click)="onLogout()">
       <mat-icon>logout</mat-icon>
     </button>
   </mat-toolbar>
 
-  <div class="div-banner">
-    <img class="img-banner" [src]="imageSalesLeft"/>
-    <img class="img-banner" [src]="imageSalesMiddle"/>
-    <img class="img-banner" [src]="imageSalesRight"/>
+  <div class="div-banner animatie-miscare">
+    <img class="img-banner img-left" [src]="imageSalesLeft"/>
+    <img class="img-banner img-middle" [src]="imageSalesMiddle"/>
+    <img class="img-banner img-right" [src]="imageSalesRight"/>
   </div>
 
   <app-list-items [showAdmin]="false"></app-list-items>

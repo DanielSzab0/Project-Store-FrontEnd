@@ -10,6 +10,8 @@ import {User} from "../models/User";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+  viewType: string = "edit-item"
+
   selectedItem: Item = new Item("", "", "", "", "");
   selectedUser: User = new User("", "", "", "");
 
@@ -53,5 +55,13 @@ export class DashboardComponent {
 
   onLogout(): void {
     this.router.navigateByUrl('/auth');
+  }
+
+  onHome(): void {
+    this.router.navigateByUrl('/home')
+  }
+
+  public setViewType(viewType: string) {
+    this.viewType = viewType;
   }
 }

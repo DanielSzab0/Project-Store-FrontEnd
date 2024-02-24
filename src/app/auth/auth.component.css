@@ -2,7 +2,7 @@
   height: 100%;
   color:
     #fff;
-  background-image: url("../../assets/sales_middle.jpeg");
+  background-image: url("../../assets/background-auth.jpg");
   background-size: 100%;
-  background-size: cover;
+  /*object-fit: cover;*/
 }

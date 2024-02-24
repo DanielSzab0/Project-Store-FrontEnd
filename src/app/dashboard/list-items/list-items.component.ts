@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Item} from "../../models/Item";
 import {ItemService} from "../../services/item.service";
 import {CartService} from "../../services/cart.service";
+import {ActivatedRoute} from "@angular/router";
+import {DashboardComponent} from "../dashboard.component";
 
 @Component({
   selector: 'app-list-items',
@@ -10,18 +12,25 @@ import {CartService} from "../../services/cart.service";
 })
 export class ListItemsComponent {
   @Input("showAdmin") showAdmin: boolean = false;
+  @Input("showAddToCart") showAddToCart: boolean = true;
   @Output() changeData: EventEmitter<Item> = new EventEmitter<Item>();
 
   itemsList: Array<Item> = [];
 
-  constructor(private movieService: ItemService, private cartService: CartService) {
+  constructor(private movieService: ItemService, private cartService: CartService, private route: ActivatedRoute ) {
+  }
 
+  isDashboardPage(): boolean {
+    return this.route.component === DashboardComponent;
   }
 
   ngOnInit() {
     this.movieService.getItemList().subscribe((itemsList: Array<Item>) => {
       this.itemsList = itemsList;
     });
+    if (this.isDashboardPage()) {
+      this.showAddToCart = false;
+    }
   }
 
   onDelete(item: Item): void {

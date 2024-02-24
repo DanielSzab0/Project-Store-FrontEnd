@@ -28,7 +28,7 @@ export class ItemService {
     }
     let headers = new HttpHeaders();
     headers.set("CONTENT-TYPE","APPLICATION/json")
-    this.httpClient.post(`${environment.apiUrl}/items/`, body,{headers: headers}).subscribe((response:any) => {
+    this.httpClient.post(`${environment.apiUrl}/item`, body,{headers: headers}).subscribe((response:any) => {
       console.log("Create item response")
       console.log(response);
       alert(response.message);
@@ -45,7 +45,7 @@ export class ItemService {
       "price": item.price,
       "imageUrl": item.imageUrl,
     }
-    this.httpClient.patch(`${environment.apiUrl}/items/${item.id}`, body).subscribe((response:any) => {
+    this.httpClient.patch(`${environment.apiUrl}/item`, body).subscribe((response:any) => {
       console.log("Update item response")
       console.log(response);
       alert(response.message);
@@ -54,7 +54,7 @@ export class ItemService {
   }
 
   deleteItem(id:string) {
-    this.httpClient.delete(`${environment.apiUrl}/items/${id}`).subscribe((response:any) => {
+    this.httpClient.delete(`${environment.apiUrl}/item/${id}`).subscribe((response:any) => {
       console.log("Delete item response")
       console.log(response);
       alert(response.message);
@@ -64,7 +64,7 @@ export class ItemService {
   }
 
   readItems() {
-    this.httpClient.get(`${environment.apiUrl}/items/`).subscribe((response:any) => {
+    this.httpClient.get(`${environment.apiUrl}/items`).subscribe((response:any) => {
       console.log(response);
 
       this.itemObservable.next(response.data);

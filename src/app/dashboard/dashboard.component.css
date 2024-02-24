@@ -1,5 +1,14 @@
+.page-container {
+  height: 100%;
+  background-image: url("../../assets/background-dashboard.jpg");
+}
+
 .div-elements {
   display: flex;
+}
+
+.span-spacer {
+  height: 10px;
 }
 
 .div-spacer {
@@ -12,10 +21,6 @@
 
 .page-sidenav {
   padding: 20px;
-}
-
-.page-container {
-  height: 100%;
 }
 
 .app-logo {
@@ -31,6 +36,20 @@
 
 .div-menu {
   margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.menu-button {
+  width: 95%;
 }
 
 .item-menu-title {
@@ -38,6 +57,11 @@
   color: black;
   font-style: normal;
   text-align: center;
+}
+
+.title-card {
+  margin-top: 10px;
+  width: 95%;
 }
 
 .div-items {
@@ -56,9 +80,16 @@
 }
 
 .lbl-title {
+  margin-top: 20px;
   font-size: 25px;
   color: black;
   font-weight: bold;
   margin-left: 16px;
   margin-bottom: 16px;
+}
+
+.mat-mdc-raised-button:hover {
+  transition: transform 500ms, background-color 1000ms;
+  transform: scale3d(1.05, 1.05, 1.05);
+  background-color: #3b3a3a;
 }
