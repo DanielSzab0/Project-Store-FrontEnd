@@ -27,14 +27,14 @@
       <div class="input-container">
         <mat-form-field appearance="fill" class="input-field">
           <mat-label>user name</mat-label>
-          <input matInput placeholder="Popescu" [formControl]="userName" required>
+          <input matInput placeholder="" [formControl]="userName" required>
           <mat-error *ngIf="userName.invalid">{{getErrorEmailMessage()}}</mat-error>
         </mat-form-field>
       </div>
       <div class="input-container">
         <mat-form-field appearance="fill" class="input-field">
           <mat-label> Email</mat-label>
-          <input matInput placeholder="pat@example.com" [formControl]="email" required>
+          <input matInput placeholder="" [formControl]="email" required>
           <mat-error *ngIf="email.invalid">{{getErrorEmailMessage()}}</mat-error>
         </mat-form-field>
       </div>

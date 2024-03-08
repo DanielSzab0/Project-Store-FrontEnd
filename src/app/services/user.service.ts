@@ -14,23 +14,6 @@ export class UserService {
   constructor(private httpClient: HttpClient) {
     this.readUsers();
     this.user = new User("", "", "", "")
-
-    this.user.id = "4";
-    this.user.username = "Catalin";
-    this.user.email = "catalin@gmail.com";
-    this.user.password = "";
-  }
-
-  getUserList() {
-    return this.userObservable.asObservable();
-  }
-
-  setUser(user: User): void {
-    this.user = user;
-  }
-
-  getUser(): User {
-    return this.user;
   }
 
   isUserLoggedIn(): boolean {
@@ -84,5 +67,17 @@ export class UserService {
 
       this.userObservable.next(response.data);
     });
+  }
+
+  getUserList() {
+    return this.userObservable.asObservable();
+  }
+
+  setUser(user: User): void {
+    this.user = user;
+  }
+
+  getUser(): User {
+    return this.user;
   }
 }

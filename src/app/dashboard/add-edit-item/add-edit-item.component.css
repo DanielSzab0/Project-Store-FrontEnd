@@ -29,4 +29,5 @@
   transition: transform 500ms, background-color 1000ms;
   transform: scale3d(1.05, 1.05, 1.05);
   background-color: #3b3a3a;
+  color: #171616;
 }

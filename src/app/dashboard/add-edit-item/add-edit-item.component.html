@@ -5,21 +5,21 @@
         <div class="input-container">
           <mat-form-field appearance="fill" class="input-field">
             <mat-label>Title</mat-label>
-            <input matInput placeholder="Thor" [formControl]="title" required>
+            <input matInput [formControl]="title" required>
             <mat-error *ngIf="title.invalid">{{getErrorMessage(title)}}</mat-error>
           </mat-form-field>
         </div>
         <div class="input-container">
           <mat-form-field appearance="fill" class="input-field">
             <mat-label>Description</mat-label>
-            <input matInput placeholder="super hero" [formControl]="description" required>
+            <input matInput [formControl]="description" required>
             <mat-error *ngIf="description.invalid">{{getErrorMessage(description)}}</mat-error>
           </mat-form-field>
         </div>
         <div class="input-container">
           <mat-form-field appearance="fill" class="input-field">
             <mat-label>Price</mat-label>
-            <input matInput placeholder="20 RON" [formControl]="price" required>
+            <input matInput [formControl]="price" required>
             <mat-error *ngIf="price.invalid">{{getErrorMessage(price)}}</mat-error>
           </mat-form-field>
         </div>
@@ -37,13 +37,13 @@
         <div class="input-container">
           <mat-form-field appearance="fill" class="input-field">
             <mat-label>Image URL</mat-label>
-            <input matInput placeholder="Link from Google" [formControl]="imageUrl" required>
+            <input matInput [formControl]="imageUrl" required>
             <mat-error *ngIf="imageUrl.invalid">{{getErrorMessage(imageUrl)}}</mat-error>
           </mat-form-field>
         </div>
         <div class="div-buttons-container">
           <button mat-raised-button color="primary" (click)="onSave()">{{id == "" ? "Create" : "Update"}}</button>
-          <button class="btn-register" mat-button color="primary" (click)="setViewType('edit-user')">Switch to edit user</button>
+          <button class="btn-register" mat-button color="primary" (click)="setViewType('edit-user')">Switch to user edit</button>
         </div>
       </mat-card-content>
     </mat-card>

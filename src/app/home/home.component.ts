@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {environment} from "../../environments/environment";
 import {Router} from "@angular/router";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  isAdmin: boolean = false;
+
   title: string = environment.appName;
   logo: string = environment.appLogo;
   owner: string = environment.appOwner;
@@ -16,32 +19,35 @@ export class HomeComponent {
   imageSalesLeft: string = 'assets/left-card.png';
   imageSalesMiddle: string = 'assets/middle-card.png';
   imageSalesRight: string = 'assets/right-card.png';
-  imageBackgroundHome: string = 'assets/background-home.png';
+  imageBackgroundHome: string = '../../assets/background-home.jpg';
 
   // menu items
-  items: Array<any> = [
-    {
+  // items: Array<any> = [
+  //   {
+  //     title: 'Home',
+  //     route: '/home',
+  //   },
+  //   {
+  //     title: 'Admin',
+  //     route: '/dashboard',
+  //   },
+  //   {
+  //     title: 'Logout',
+  //     route: '/auth',
+  //   },
+  // ];
 
+  constructor(private router: Router, private userService: UserService) {
+    const user = this.userService.getUser();
 
-      title: 'Home',
-      route: '/home',
-    },
-    {
-      title: 'Admin',
-      route: '/dashboard',
-    },
-    {
-      title: 'Logout',
-      route: '/auth',
-    },
-  ];
-
-  constructor(private router: Router) {
+    if (user.userRole === 'ADMIN') {
+      this.isAdmin = true;
+    }
   }
 
-  onChangePage(page: any) {
-    this.router.navigateByUrl(page.route);
-  }
+  // onChangePage(page: any) {
+  //   this.router.navigateByUrl(page.route);
+  // }
 
   onLogout(): void {
     this.router.navigateByUrl('/auth')

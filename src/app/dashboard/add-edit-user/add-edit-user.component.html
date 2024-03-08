@@ -3,14 +3,14 @@
     <div class="input-container">
       <mat-form-field appearance="fill" class="input-field">
         <mat-label>user name</mat-label>
-        <input matInput placeholder="Popescu" [formControl]="userName" required>
+        <input matInput [formControl]="userName" required>
         <mat-error *ngIf="userName.invalid">{{getErrorEmailMessage()}}</mat-error>
       </mat-form-field>
     </div>
     <div class="input-container">
       <mat-form-field appearance="fill" class="input-field">
         <mat-label> Email</mat-label>
-        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+        <input matInput [formControl]="email" required>
         <mat-error *ngIf="email.invalid">{{getErrorEmailMessage()}}</mat-error>
       </mat-form-field>
     </div>
@@ -43,7 +43,7 @@
 
     <div class="div-buttons-container">
       <button mat-raised-button color="primary" (click)="onSave()">Save</button>
-      <button class="btn-register" mat-button color="primary" (click)="setViewType('edit-item')">Switch to edit item</button>
+      <button class="btn-register" mat-button color="primary" (click)="setViewType('edit-item')">Switch to item edit</button>
     </div>
   </mat-card-content>
 </mat-card>

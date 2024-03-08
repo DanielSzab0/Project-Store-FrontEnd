@@ -6,7 +6,7 @@
 
     <div class="div-menu">
       <div class="buttons">
-        <button class="menu-button" mat-raised-button color="primary" (click)="onAdmin()">ADMIN</button>
+        <button class="menu-button" mat-raised-button color="primary" (click)="onAdmin()" *ngIf="isAdmin" >ADMIN</button>
         <span class="span-spacer"></span>
         <button class="menu-button" mat-raised-button color="primary" (click)="onLogout()">LOGOUT</button>
       </div>

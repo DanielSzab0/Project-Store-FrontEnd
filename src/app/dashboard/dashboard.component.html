@@ -28,32 +28,26 @@
     </button>
   </mat-toolbar>
 
-  <p class="lbl-title">Items Section</p>
+  <p class="lbl-title" *ngIf = "viewType === 'edit-item'">Items Section</p>
 
-<!--  *ngIf = "viewType === 'edit-item'" (viewTypeChange)= "setViewType($event)"-->
-
-  <div class="div-items" >
-    <app-add-edit-item [item]="selectedItem"></app-add-edit-item>
+  <div class="div-items">
+    <app-add-edit-item [item]="selectedItem" *ngIf = "viewType === 'edit-item'" (viewTypeChange)= "setViewType($event)"></app-add-edit-item>
     <div class="div-spacer"></div>
-    <app-list-items [showAdmin]="true" (changeData)="onChangeItem($event)"></app-list-items>
+    <app-list-items [showAdmin]="true" (changeData)="onChangeItem($event)" *ngIf = "viewType === 'edit-item'"></app-list-items>
   </div>
 
-  <mat-divider style="margin-bottom: 25px;margin-top: 25px;"></mat-divider>
+  <p class="lbl-title" *ngIf = "viewType === 'edit-user'">Users Section</p>
 
-  <p class="lbl-title">Users Section</p>
-
-<!--  *ngIf = "viewType === 'edit-user'" (viewTypeChange)= "setViewType($event)"-->
-
-  <div class="div-users" >
-    <app-add-edit-user [user]="selectedUser"></app-add-edit-user>
-    <app-list-users (changeData)="onChangeUser($event)"></app-list-users>
+  <div class="div-users">
+    <app-add-edit-user [user]="selectedUser" *ngIf = "viewType === 'edit-user'" (viewTypeChange)= "setViewType($event)"></app-add-edit-user>
+    <app-list-users (changeData)="onChangeUser($event)" *ngIf = "viewType === 'edit-user'"></app-list-users>
   </div>
 
-  <mat-divider style="margin-bottom: 25px;margin-top: 25px;"></mat-divider>
+  <mat-divider style="margin-bottom: 25px;margin-top: 25px;" *ngIf = "viewType === 'edit-item'"></mat-divider>
 
-  <p class="lbl-title">Carts Section</p>
+  <p class="lbl-title" *ngIf = "viewType === 'edit-item'">Carts Section</p>
   <div class="div-carts">
-    <app-list-carts></app-list-carts>
+    <app-list-carts *ngIf = "viewType === 'edit-item'"></app-list-carts>
   </div>
 
 

@@ -1,8 +1,7 @@
 .user-card {
   background-color: white;
-  display: flex; /* unnecesary, only the container needs to be flex */
-  /* unless this is another flex container */
-  flex-direction: column; /* also unnecesary unless it's for purposes not shown in the example */
+  display: flex;
+  flex-direction: column;
   min-width: 500px;
   margin: 10px;
   height: 150px;
@@ -25,7 +24,7 @@
 
 .div-row {
   display: flex;
-  flex: 1; /* unnecesary */
+  flex: 1;
   flex-wrap: wrap;
 }
 

@@ -17,7 +17,7 @@ export class ListItemsComponent {
 
   itemsList: Array<Item> = [];
 
-  constructor(private movieService: ItemService, private cartService: CartService, private route: ActivatedRoute ) {
+  constructor(private itemService: ItemService, private cartService: CartService, private route: ActivatedRoute ) {
   }
 
   isDashboardPage(): boolean {
@@ -25,7 +25,7 @@ export class ListItemsComponent {
   }
 
   ngOnInit() {
-    this.movieService.getItemList().subscribe((itemsList: Array<Item>) => {
+    this.itemService.getItemList().subscribe((itemsList: Array<Item>) => {
       this.itemsList = itemsList;
     });
     if (this.isDashboardPage()) {
@@ -33,16 +33,15 @@ export class ListItemsComponent {
     }
   }
 
-  onDelete(item: Item): void {
-    console.log(item);
-    // movie.id! => ! ii spune compilatorului ca proprietatea "id" este diferita de null.
-    this.movieService.deleteItem(item.id!);
-  }
-
   onEdit(item: Item): void {
     console.log("item list on edit")
     console.log(item);
     this.changeData.emit(item);
+  }
+
+  onDelete(item: Item): void {
+    console.log(item);
+    this.itemService.deleteItem(item.id!);
   }
 
   onAddToCart(item: Item): void {

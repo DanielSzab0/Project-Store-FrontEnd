@@ -19,20 +19,20 @@ export class DashboardComponent {
   logo: string = environment.appLogo;
   owner: string = environment.appOwner;
 
-  items: Array<any> = [
-    {
-      title: 'Home',
-      route: '/home',
-    },
-    {
-      title: 'Admin',
-      route: '/dashboard',
-    },
-    {
-      title: 'Logout',
-      route: '/auth',
-    },
-  ];
+  // items: Array<any> = [
+  //   {
+  //     title: 'Home',
+  //     route: '/home',
+  //   },
+  //   {
+  //     title: 'Admin',
+  //     route: '/dashboard',
+  //   },
+  //   {
+  //     title: 'Logout',
+  //     route: '/auth',
+  //   },
+  // ];
 
   constructor(private router: Router) {
   }
@@ -49,9 +49,9 @@ export class DashboardComponent {
     this.selectedUser = user;
   }
 
-  onChangePage(page: any) {
-    this.router.navigateByUrl(page.route);
-  }
+  // onChangePage(page: any) {
+  //   this.router.navigateByUrl(page.route);
+  // }
 
   onLogout(): void {
     this.router.navigateByUrl('/auth');
