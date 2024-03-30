@@ -5,5 +5,5 @@ export const environment = {
   appName: "Computer Shop",
   appOwner: "Daniel Szabo",
   appLogo: "assets/logo.jpg",
-  itemCategories: ['CPU', 'laptop', 'RAM', 'STORAGE']
+  itemCategories: ['CPU', 'LAPTOP', 'RAM', 'STORAGE']
 };
